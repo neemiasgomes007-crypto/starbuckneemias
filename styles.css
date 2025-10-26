@@ -1,0 +1,339 @@
+/* ======================================= */
+/* REGRAS GLOBAIS E ESTILOS ORIGINAIS */
+/* ======================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 100px;
+    
+    /* REMOVIDAS AS PROPRIEDADES DE background-image */
+    background-color: transparent; /* Garante que o body não atrapalhe */
+    
+    /* Mantenha o restante */
+    overflow-x: hidden; 
+    min-height: 100vh;
+}
+
+.caixa-conteudo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.caixa-textos {
+    width: 600px;
+    /* Ajuste para alinhar o texto com a logo no topo */
+    padding-top: 50px; 
+}
+
+h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 70px;
+    line-height: 1.1; /* Melhora a leitura em duas linhas */
+}
+
+.texto-starbucks {
+    color: #017143;
+    font-weight: 900;
+    font-size: 80px; /* CORRIGIDO: de 80x para 80px */
+}
+
+.paragrafo {
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.5;
+}
+
+/* Estiliza a tag <a> para que o botão não perca o estilo */
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: #017143;
+    color: #fff;
+    margin-top: 30px;
+    padding: 10px 25px; /* Aumentado o padding horizontal */
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: all 0.5s;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+button:hover {
+    background-color: #00b368;
+    transform: translateY(-2px); /* Efeito de elevação sutil */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.logo {
+    width: 80px;
+}
+
+.caixa-imagem {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    /* CORREÇÃO: Reduzido para trazer a imagem mais para cima e evitar que seja cortada */
+    margin-top: 100px; 
+}
+
+.imagem-copo {
+    width: 340px;
+    transition: transform 0.5s ease-in-out; 
+    /* Aplica a animação de balanço */
+    animation: balancoSuave 6s ease-in-out infinite;
+}
+
+.caixa-menu {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px; /* Espaçamento entre o copo e o menu */
+}
+
+.botao-menu {
+    width: 80px;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out; 
+}
+
+/* Efeito ao passar o mouse e ao ativar (JS) */
+.botao-menu:hover {
+    transform: scale(1.05) translateY(-5px); 
+}
+
+/* Estilo para o copo do menu que está ativo */
+.botao-menu.ativo {
+    border: 3px solid #fff; /* Borda branca para destaque */
+    border-radius: 50%; 
+    padding: 5px; /* Aumenta o padding para a borda */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.9); /* Brilho */
+    transform: scale(1.1) translateY(-8px); /* Destaca ainda mais */
+}
+
+
+/* ======================================= */
+/* ANIMAÇÕES @keyframes */
+/* ======================================= */
+
+@keyframes balancoSuave {
+    0% {
+        transform: rotateZ(-1deg) translateY(0); 
+    }
+    50% {
+        transform: rotateZ(1deg) translateY(-5px); 
+    }
+    100% {
+        transform: rotateZ(-1deg) translateY(0);
+    }
+}
+
+.animar-entrada {
+    opacity: 0; 
+    transform: translateY(20px); 
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+.animacao-texto {
+    animation: slideInUp 1s ease-out forwards; 
+}
+
+.animacao-imagem {
+    animation: slideInUp 1s ease-out 0.5s forwards; 
+}
+
+.animacao-menu {
+    animation: slideInUp 1s ease-out 1s forwards; 
+}
+
+/* NOVO ESTILO DO CÍRCULO: PREENCHE 100% DA TELA IMEDIATAMENTE */
+.circulo {
+    background-color: #017143; /* Cor padrão, será alterada pelo JS na carga */
+    width: 100%;
+    height: 100vh; /* 100% da altura da tela */
+    position: fixed; /* Fixa na viewport */
+    top: 0;
+    left: 0;
+    /* REMOVIDA A ANIMAÇÃO DE EXPANSÃO */
+    z-index: -1;
+}
+
+/* ======================================= */
+/* ESTILOS DA PÁGINA DE LOGIN (login.html) */
+/* ======================================= */
+
+.login-body {
+    padding: 0; 
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Manteve a imagem de fundo na página de login */
+    background-image: url("img/fundo.jpg"); 
+    background-position: center;
+    background-size: cover;
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.95); 
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); 
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.login-box h2 {
+    color: #017143; 
+    margin-bottom: 25px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.login-box button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 5px;
+    transform: none; 
+    box-shadow: none; 
+    background-color: #017143; /* Garante a cor verde */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.login-box button:hover {
+    transform: none; 
+    background-color: #00b368;
+}
+
+
+.back-link {
+    display: block;
+    margin-top: 15px;
+    color: #017143;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #00b368;
+}
+
+/* ======================================= */
+/* RESPONSIVIDADE (MEDIA QUERIES) */
+/* ======================================= */
+
+@media (max-width: 1024px) {
+    /* Ajuste para tablets e telas menores que 1024px */
+    body {
+        padding: 20px 50px 50px 50px; 
+    }
+
+    .caixa-textos {
+        width: 50%; 
+    }
+
+    .caixa-imagem {
+        width: 50%;
+        margin-top: 100px;
+    }
+
+    .imagem-copo {
+        width: 280px;
+    }
+    
+    h2 {
+        font-size: 50px;
+    }
+
+    .texto-starbucks {
+        font-size: 60px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Ajuste para celulares */
+    body {
+        padding: 20px; 
+    }
+
+    .caixa-conteudo {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .caixa-textos, .caixa-imagem {
+        width: 100%; 
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .caixa-imagem {
+        justify-content: center; 
+        margin: 30px 0;
+    }
+
+    h2 {
+        font-size: 38px; 
+    }
+
+    .texto-starbucks {
+        font-size: 48px;
+    }
+    
+    .imagem-copo {
+        width: 250px; 
+    }
+
+    .caixa-menu {
+        padding-top: 20px;
+    }
+    
+    .botao-menu {
+        width: 65px; 
+    }
+    
+    /* REMOVIDO O @keyframes expandCircle desta media query também */
+}
